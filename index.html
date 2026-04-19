@@ -1,1 +1,132 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programming Downloads</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #0f172a;
+    color: #fff;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    background: #020617;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background: #1e293b;
+    border-radius: 15px;
+    padding: 20px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.title {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.desc {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-bottom: 15px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #38bdf8;
+    color: #000;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: #0ea5e9;
+}
+
+@media (max-width: 500px) {
+    header {
+        font-size: 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>Programming Downloads</header>
+
+<div class="container" id="list"></div>
+
+<script>
+// ===== DATA =====
+const programs = [
+    {
+        name: "Node.js",
+        desc: "Run JavaScript on server",
+        link: "https://nodejs.org/"
+    },
+    {
+        name: "WordPress",
+        desc: "Website CMS platform",
+        link: "https://wordpress.org/download/"
+    },
+    {
+        name: "VS Code",
+        desc: "Code editor by Microsoft",
+        link: "https://code.visualstudio.com/"
+    },
+    {
+        name: "XAMPP",
+        desc: "Local server for PHP",
+        link: "https://www.apachefriends.org/"
+    },
+    {
+        name: "Git",
+        desc: "Version control system",
+        link: "https://git-scm.com/"
+    },
+    {
+        name: "NPM",
+        desc: "Package manager for Node",
+        link: "https://www.npmjs.com/"
+    }
+];
+
+// ===== RENDER =====
+const container = document.getElementById("list");
+
+programs.forEach(p => {
+    container.innerHTML += `
+        <div class="card">
+            <div class="title">${p.name}</div>
+            <div class="desc">${p.desc}</div>
+            <a class="btn" href="${p.link}" target="_blank">Download</a>
+        </div>
+    `;
+});
+</script>
+
+</body>
+</html>
